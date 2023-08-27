@@ -1,8 +1,8 @@
 class Scooter
-    attr_reader :scooter_id, :rental_price
+    attr_reader :id
 
-    def initialize(scooter_id)
-        @scooter_id = scooter_id
+    def initialize(id)
+        @id = id
         # @status = "Available"
         # @rental_price = rental_price
     end
