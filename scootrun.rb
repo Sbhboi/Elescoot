@@ -9,7 +9,7 @@ puts "Enter your contact number:"
 contact_number = gets.chomp
 user = User.new(name, contact_number)
 puts "Enter the amount to be pay:"
-amount = gets.chomp
+amount = gets.chomp.to_f
 start_time = Time.now
 
 user.save_to_csv(amount, start_time)
@@ -29,10 +29,10 @@ station1.add_scooter(scooter)
 # Rent a scooter
 puts "Enter the scooter ID you want to rent:"
 scooter_id = gets.chomp.to_i
-scooter = station1.add_scooter(scooter).find { |s| s.scooter_id == scooter_id }
+scooter = station1.add_scooter(scooter).find { |s| s.id == scooter_id }
 if scooter
   scooter.rent
-  user.make_payment(10)
+  user.make_payment(amount)
 else
   puts "Invalid scooter ID."
 end
